@@ -99,11 +99,7 @@ function createElementWithText(element = "", text = "") {
 }
 
 function addOneItem (item) {
-  // for (let i = 0; i < cartItems.length; i++) {
-    // if (cartItems.item.id === item.id) {
       item.quantity++;
-    // }
-  // }
   calculateTotal(cartItems);
   renderCartList(cartItems);
 }
@@ -121,7 +117,6 @@ function removeOneItem (item) {
     }
     calculateTotal(cartItems);
     renderCartList(cartItems);
-    console.log(cartItems);
 }
 
 function calculateTotal(cartItems) {
@@ -129,8 +124,6 @@ function calculateTotal(cartItems) {
   for (let i = 0; i < cartItems.length; i++) {
     total = total + (cartItems[i].item.price)*(cartItems[i].quantity);
     totalValue.innerText = "£" + total.toFixed(2);
-    console.log(cartItems[i].item.price);
-    console.log(cartItems[i].quantity);
   }
 }
 
@@ -148,7 +141,6 @@ function addItemToCart (item) {
         quantity: 1
       }
       cartItems.push(newItem);
-      console.log(newItem);
     }
     calculateTotal(cartItems);
 }
@@ -187,8 +179,6 @@ function renderGroceryList(groceries) {
     divEl.append(imgEl);
     liEl.append(divEl, cartButton);
     groceryList.append(liEl);
-    console.log(liEl);
-    console.log(groceries[i].id);
 
     cartButton.addEventListener("click", function() {
       addItemToCart(groceries[i]);
